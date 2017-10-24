@@ -1,6 +1,6 @@
 # Lexure
 
-Lexure is an application that takes a recorded lecture in .wav format, produces:
+Lexure is an application that takes a recorded lecture in .wav format and produces:
 * A searchable text file
 * Topics covered
 * Abstract of the lecture
