@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.cmu.sphinx.linguist.dictionary.DictionaryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-10-23T20:47:29" hostname="localhost" time="0.116">
+  <properties/>
+  <testcase name="testBadDictionary" classname="edu.cmu.sphinx.linguist.dictionary.DictionaryTest" time="0.004"/>
+  <testcase name="testDictionary" classname="edu.cmu.sphinx.linguist.dictionary.DictionaryTest" time="0.112"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary allocate
+INFO: Loading dictionary from: file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-core/build/resources/test/edu/cmu/sphinx/linguist/dictionary/bad.dict
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary allocate
+INFO: Loading dictionary from: jar:file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-data/build/libs/sphinx4-data-5prealpha-SNAPSHOT.jar!/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary allocate
+INFO: Loading filler dictionary from: jar:file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-data/build/libs/sphinx4-data-5prealpha-SNAPSHOT.jar!/edu/cmu/sphinx/models/en-us/en-us/noisedict
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: W
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: AH
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: N
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: HH
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary getWord
+INFO: The dictionary is missing a phonetic transcription for the word 'something_missing'
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: *+SPN+
+Oct 23, 2017 1:47:29 PM edu.cmu.sphinx.linguist.acoustic.UnitManager getUnit
+INFO: CI Unit: *+NSN+
+]]></system-err>
+</testsuite>

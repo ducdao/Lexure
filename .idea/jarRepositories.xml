@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="1b8201c1-34f0-464e-9781-0b39406ed57b" />
+      <option name="name" value="1b8201c1-34f0-464e-9781-0b39406ed57b" />
+      <option name="url" value="https://oss.sonatype.org/service/local/repositories/snapshots/content/edu/cmu/sphinx/sphinx4-core/1.0-SNAPSHOT/sphinx4-core-1.0-20150223.210646-7.jar" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="1e01d295-b340-49be-a2c6-645604ca3e84" />
+      <option name="name" value="1e01d295-b340-49be-a2c6-645604ca3e84" />
+      <option name="url" value="https://oss.sonatype.org/service/local/repositories/snapshots/content/edu/cmu/sphinx/sphinx4-data/1.0-SNAPSHOT/sphinx4-data-1.0-20150223.210601-7.jar" />
+    </remote-repository>
+  </component>
+</project>

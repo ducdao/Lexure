@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-23T20:48:08" hostname="localhost" time="0.445">
+  <properties/>
+  <testcase name="testNgram" classname="edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieTest" time="0.445"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Oct 23, 2017 1:48:08 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary allocate
+INFO: Loading dictionary from: file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-core/build/resources/test/edu/cmu/sphinx/linguist/language/ngram/trie/100.dict
+Oct 23, 2017 1:48:08 PM edu.cmu.sphinx.linguist.dictionary.TextDictionary allocate
+INFO: Loading filler dictionary from: jar:file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-data/build/libs/sphinx4-data-5prealpha-SNAPSHOT.jar!/edu/cmu/sphinx/models/en-us/en-us/noisedict
+Oct 23, 2017 1:48:08 PM edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieModel allocate
+INFO: Loading n-gram language model from: file:/home/ducdao/IdeaProjects/Lexure/sphinx4/sphinx4-core/build/resources/test/edu/cmu/sphinx/linguist/language/ngram/trie/100.arpa.bin
+]]></system-err>
+</testsuite>

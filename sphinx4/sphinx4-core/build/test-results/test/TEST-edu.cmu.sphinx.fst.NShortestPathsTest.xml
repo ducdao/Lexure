@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.cmu.sphinx.fst.NShortestPathsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-23T20:48:08" hostname="localhost" time="0.016">
+  <properties/>
+  <testcase name="testNShortestPaths" classname="edu.cmu.sphinx.fst.NShortestPathsTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.cmu.sphinx.fst.ComposeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-23T20:47:29" hostname="localhost" time="0.004">
+  <properties/>
+  <testcase name="testCompose" classname="edu.cmu.sphinx.fst.ComposeTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Load Time: 0.002
+]]></system-err>
+</testsuite>
