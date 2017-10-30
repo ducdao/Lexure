@@ -8,6 +8,7 @@ import edu.cmu.sphinx.result.WordResult;
 
 public class Transcribe {
 
+   // TODO: Create OUTPUT_DIR when directory doesn't exist
    private static String OUTPUT_DIR = "output/";
 
    public static void main(String[] args) throws Exception {
