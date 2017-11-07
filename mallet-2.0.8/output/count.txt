@@ -1,0 +1,1 @@
+0	file:/home/ducdao/IdeaProjects/Lexure/mallet-2.0.8/input/ducShort.txt	0.64	0.04	0.04	0.04	0.04	0.04	0.04	0.04	0.04	0.04

@@ -1,0 +1,22 @@
+Overlocking, if you've never heard of it before, is the dark art of forcing
+your electronics to perform better than the manufacturer intended. Your
+computer CPU, tablet, phone, and any other modern computing devices you might 
+own have processors inside them that all have something in common. Their 
+performance is dictated by the design, or architecture, and the number of the
+cycles that they can perform per second. Which is usually represented as 
+frequency or clock speed. So that is where the term overclocking comes from. 
+You're taking the clock speed and turning it up over the manufacturer's 
+recommendation to get more performance. Now as I said before, clock speed 
+is not the only factor. So it's not like you can overclock a calculator to 
+perform as well as a gaming pc. With that said, you can make the calculator 
+faster relative to it's original state. So how do you do it? Well, first you
+have to decide if you actually want to. Overclocking often requires other 
+aspects of your device to be run outside of specifications. What will happen
+is your device will become unstable as you turn up the speed. You can 
+compensate by turning up voltage, but that can cause additional power 
+consumption and more heat output. Seasoned overclockers will have experience 
+with anything from large heat sinks with fans for cooling to liquid cooling or
+even more exotic subzero cooling if they are trying to get maximum performance.
+More voltage also increases the risk of failure. So for this reason, many 
+manufacturers will actually refuse outright to provide warranty service on 
+overclocked electronics. 
