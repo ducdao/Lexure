@@ -15,6 +15,8 @@ next class by quickly reviewing the previous lecture.
 4. All information will be easily shareable with other students (i.e. missed class? Here’s the entire, searchable 
 lecture with topics and a summary).
 
+Lexure is a project for [Cal Poly](https://www.calpoly.edu/)'s Artifical Intelligence class, CSC 480, by Dave Arndt, Duc Dao, Nicholas Ilog, Jin Young Jeong, and Tommy White.
+
 ## Usage
 * Compile with the required dependency jars included in the classpath, or using the gradle project set up.
 * Simply call the generated executable with no arguments to open the interactive command line utility.
@@ -26,9 +28,10 @@ lecture with topics and a summary).
 3. Run by selecting Run > 'Run Transcribe'.
 
 ## Current Implementation
-* Accepts user-inputted input file (must be .wav format) from `input` directory (located in project root directory).
+* Accepts user-inputted input file (must be in .wav format) from `/input` directory (located in project root directory).
 * Outputs transcription of the .wav file to user-specified output file. 
-* Stores output file in the `output` directory (located in project root directory).
+* Stores output file in the `/output` directory (located in project root directory) and `/mallet-2.0.8/input`.
+* Topic model the transcription by executing `mallet-2.0.8/topicModelling.sh`. This is bash script that obtains a cluster of words. From here, we'll extract the topic by choosing the most frequently occurring word from that cluster.
 
 ## Future Features
 * All files copied/stored locally in an intelligent way (i.e. two users have the same class at the same time and have
