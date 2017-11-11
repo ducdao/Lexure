@@ -1,21 +1,26 @@
 import java.io.*;
 import java.lang.Process;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 import edu.cmu.sphinx.result.WordResult;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class Transcribe {
-
-   private static String OUTPUT_DIR = "output";
+   private final static String OUTPUT_DIR = "output";
+   private final static int NUM_TOPICS = 10;
 
    public static void main(String[] args) throws Exception {
       Configuration configuration = new Configuration();
@@ -86,6 +91,7 @@ public class Transcribe {
 
          copyToMalletDir(outputFile);
          topicModelling();
+         processXMLTopicCluster();
       }
    }
 
@@ -127,7 +133,10 @@ public class Transcribe {
    }
 
    public static void topicModelling() {
-      List<String> modelling = Arrays.asList("./mallet-2.0.8/topicModelling.sh", "mallet-2.0.8/input", "out.mallet");
+      List<String> modelling = Arrays.asList(
+              "./mallet-2.0.8/topicModelling.sh",
+              "mallet-2.0.8/input",
+              "out.mallet");
       String line;
 
       // Execute bash script that does topic modeling
@@ -155,8 +164,83 @@ public class Transcribe {
          System.exit(1);
       } catch (InterruptedException e) {
          e.printStackTrace();
+
+         System.exit(1);
       }
 
       System.out.println("Topic modelling complete!\n");
+   }
+
+   public static class TopicInformation implements Comparable<TopicInformation> {
+      int id;
+      double alpha;
+      String mostFrequent;
+
+      public TopicInformation(int id, double alpha, String mostFrequent) {
+         this.id = id;
+         this.alpha = alpha;
+         this.mostFrequent = mostFrequent;
+      }
+
+      public int compareTo(TopicInformation ti) {
+         // Sort alpha descending
+         return this.alpha < ti.alpha ? 1 : -1;
+
+         // Sort alpha ascending
+         //return this.alpha < ti.alpha ? -1 : 1;
+      }
+
+      public static Comparator<TopicInformation> TIComparator = new Comparator<TopicInformation>() {
+         @Override
+         public int compare(TopicInformation ti1, TopicInformation ti2) {
+            return ti1.compareTo(ti2);
+         }
+      };
+   }
+
+   public static void processXMLTopicCluster() {
+      try {
+         File file = new File("mallet-2.0.8/output/topicReport.xml");
+
+         // Create XML parser
+         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+         Document doc = dBuilder.parse(file);
+         doc.getDocumentElement().normalize();
+
+         // Get a topic elements under topicModel
+         NodeList topicList = doc.getElementsByTagName("topic");
+
+         // Topic # refers to the cluster of words it belongs to
+         System.out.println("| TOPIC # |   ALPHA   | MOST FREQUENT WORD |");
+
+         List<TopicInformation> topicInfoList = new ArrayList<>();
+
+         // Initialize topicInfoList, each containing id, alpha, and most frequent word
+         for (int index = 0; index < NUM_TOPICS; index++) {
+            Node topicNode = topicList.item(index);
+
+            if (topicNode.getNodeType() == Node.ELEMENT_NODE) {
+               Element topic = (Element)topicNode;
+
+               TopicInformation temp = new TopicInformation(index,
+                       Double.valueOf(topic.getAttribute("alpha")),
+                       topic.getElementsByTagName("word").item(0).getTextContent());
+               topicInfoList.add(temp);
+            }
+         }
+
+         // Sort most frequent word of each cluster by its alpha, descending
+         topicInfoList.sort(TopicInformation.TIComparator);
+
+         for (int index = 0; index < NUM_TOPICS; index++) {
+            TopicInformation info = topicInfoList.get(index);
+
+            System.out.printf("| %7d | %2.7f | %-18s |\n", info.id, info.alpha, info.mostFrequent);
+         }
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+
    }
 }
