@@ -21,7 +21,7 @@ Lexure is a project for [Cal Poly](https://www.calpoly.edu/)'s Artifical Intelli
 * Compile with the required dependency jars included in the classpath, or using the gradle project set up.
 * Simply call the generated executable with no arguments to open the interactive command line utility.
 
-### IntelliJ Idea
+### [IntelliJ Idea](https://github.com/ducdao/Lexure/blob/master/mallet-2.0.8/topicModelling.sh)
 1. Import dependency jars into the project. File > Project Structure... > + > select `sphinx4-core-5prealpha.jar` and 
 `sphinx4-core-5prealpha.jar` (located in project root directory).
 2. Compile `/src/main/java/Transcribe.java` by opening it, and selecting Build > Recompile 'Transcribe.java'.
@@ -31,7 +31,7 @@ Lexure is a project for [Cal Poly](https://www.calpoly.edu/)'s Artifical Intelli
 * Accepts user-inputted input file (must be in .wav format) from `/input` directory (located in project root directory).
 * Outputs transcription of the .wav file to user-specified output file. 
 * Stores output file in the `/output` directory (located in project root directory) and `/mallet-2.0.8/input`.
-* Topic model the transcription by executing `mallet-2.0.8/topicModelling.sh`. This is bash script that obtains a cluster of words. From here, we'll extract the topic by choosing the most frequently occurring word from that cluster.
+* Topic model the transcription by executing [`mallet-2.0.8/topicModelling.sh`](https://github.com/ducdao/Lexure/blob/master/mallet-2.0.8/topicModelling.sh). This is bash script that obtains a cluster of words. From here, we'll extract the topic by choosing the most frequently occurring word from that cluster.
 
 ## Future Features
 * All files copied/stored locally in an intelligent way (i.e. two users have the same class at the same time and have
@@ -46,4 +46,4 @@ Lexure is a project for [Cal Poly](https://www.calpoly.edu/)'s Artifical Intelli
 ## Acknowledgements
 * Thank you to the [CMUSphinx](https://cmusphinx.github.io/) team for making their tool available for our use.
 * Thank you to the team from UMass that designed [MALLET](http://mallet.cs.umass.edu/) for making their toolset 
-available for our use.
+  available for our use.
