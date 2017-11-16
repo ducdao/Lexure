@@ -18,23 +18,30 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-public class Transcribe {
+public class Lexure {
    private final static String OUTPUT_DIR = "output";
    private final static int NUM_TOPICS = 10;
 
+   public class Timestamp {
+      double startTime;
+      double endTime;
+      String word;
+   }
+
+   public class LexureResults {
+      List<Timestamp> transcript = new ArrayList<>();
+      List<String> topics = new ArrayList<>();
+   }
+
    public static void main(String[] args) throws Exception {
-      Configuration configuration = new Configuration();
+      Configuration speechConfig = setConfiguration();
       final Scanner scanner = new Scanner(System.in);
-      String outputFile;
+      String inputFile, outputFile;
 
-      // Set path to acoustic model, dictionary, and language model, then initialize recognizer.
-      configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-      configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-      configuration.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
+      // Initialize recognizer
+      StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(speechConfig);
 
-      StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
-
-      System.out.println("Welcome to the Lexure audio file transcriber!\n");
+      System.out.println("Welcome to the Lexure!\n");
 
       createOutputDir();
 
@@ -46,6 +53,7 @@ public class Transcribe {
             try {
                fname = prompt(scanner, "Please input the file name to be transcribed: ");
                System.out.printf("Input File: %s", fname);
+               inputFile = fname;
                InputStream stream = new FileInputStream(new File(fname));
                recognizer.startRecognition(stream);
                break;
@@ -70,7 +78,7 @@ public class Transcribe {
             }
          }
 
-         System.out.println("Lexure now transcribing input file...\n");
+         System.out.printf("Lexure now transcribing %s...\n\n", inputFile);
 
          while ((result = recognizer.getResult()) != null) {
             System.out.format("Hypothesis: %s\n", result.getHypothesis());
@@ -93,6 +101,17 @@ public class Transcribe {
          topicModelling();
          processXMLTopicCluster();
       }
+   }
+
+   public static Configuration setConfiguration() {
+      Configuration config = new Configuration();
+
+      // Set path to acoustic model, dictionary, and language model
+      config.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
+      config.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+      config.setLanguageModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin");
+
+      return config;
    }
 
    public static String prompt(Scanner console, String s) {
